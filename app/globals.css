@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Baloo 2', 'Comic Sans MS', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: linear-gradient(#95e8ff 0%, #7fd1ff 36%, #9be17e 100%);
+  min-height: 100vh;
+}
+
+.park-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 14px;
+  text-align: center;
+  color: #fff;
+}
+
+.top-bar h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  text-shadow: 0 4px 0 #1f62cc;
+}
+
+.top-bar p {
+  margin: 8px 0 0;
+  font-size: 1.05rem;
+}
+
+.hud {
+  margin: 12px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: rgba(18, 41, 122, 0.35);
+  border-radius: 18px;
+  padding: 10px;
+}
+
+.hud strong {
+  color: #ffe960;
+  font-size: 1.35rem;
+}
+
+.target strong {
+  color: #ffb2f6;
+}
+
+.orchard {
+  position: relative;
+  height: 560px;
+  border-radius: 28px;
+  border: 6px solid rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+  background: linear-gradient(to bottom, #a9ecff 0%, #8ad8ff 56%, #77d761 57%, #53b13b 100%);
+  box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.4);
+}
+
+.sun {
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  font-size: 2.4rem;
+}
+
+.tree {
+  position: absolute;
+  left: 60px;
+  top: 90px;
+  width: 350px;
+  height: 330px;
+}
+
+.leaves {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 46% 54% 52% 48% / 48% 52% 48% 52%;
+  background: radial-gradient(circle at 30% 20%, #8cfd7c 0%, #45ba2f 68%, #28991f 100%);
+  box-shadow: inset -6px -10px 0 rgba(0, 0, 0, 0.07);
+}
+
+.trunk {
+  position: absolute;
+  left: 145px;
+  top: 250px;
+  width: 62px;
+  height: 140px;
+  border-radius: 18px;
+  background: linear-gradient(#b96e30, #8e4e20);
+}
+
+.apple {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background: radial-gradient(circle at 30% 25%, #ffefef 0%, #ff5e5e 55%, #da2e2e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 7px 15px rgba(126, 20, 20, 0.35);
+}
+
+.apple b {
+  margin-top: -2px;
+  font-size: 1rem;
+}
+
+.apple.picked {
+  opacity: 0;
+  transform: scale(0.2);
+  pointer-events: none;
+}
+
+.monkey-lane {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  height: 120px;
+}
+
+.monkey-cart {
+  position: absolute;
+  left: 130px;
+  bottom: 10px;
+  transition: transform 0.45s ease;
+  display: flex;
+  align-items: end;
+  gap: 6px;
+}
+
+.monkey {
+  font-size: 3rem;
+}
+
+.cart {
+  font-size: 3rem;
+}
+
+.bag {
+  display: inline-flex;
+  gap: 2px;
+  min-height: 24px;
+  align-items: center;
+}
+
+.spark {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+}
+
+.message-box {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: #fffbd0;
+  background: rgba(8, 22, 75, 0.4);
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.numpad {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(60px, 1fr));
+  gap: 9px;
+}
+
+.numpad button,
+.music-btn,
+.reset-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #143995;
+  cursor: pointer;
+}
+
+.numpad button {
+  background: linear-gradient(180deg, #fff7d6 0%, #ffd35c 100%);
+  box-shadow: 0 5px 0 #d68f20;
+}
+
+.bottom-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.music-btn {
+  background: linear-gradient(180deg, #ffffff 0%, #cff8ff 100%);
+  box-shadow: 0 5px 0 #58a8d8;
+}
+
+.reset-btn {
+  background: linear-gradient(180deg, #f2ffe7 0%, #b7ef89 100%);
+  box-shadow: 0 5px 0 #56a931;
+}
+
+@media (max-width: 760px) {
+  .hud {
+    grid-template-columns: 1fr;
+  }
+
+  .orchard {
+    height: 610px;
+  }
+
+  .tree {
+    left: 16px;
+    top: 100px;
+    transform: scale(0.85);
+    transform-origin: top left;
+  }
+
+  .monkey-cart {
+    left: 40px;
+  }
+}
